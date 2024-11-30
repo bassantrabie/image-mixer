@@ -828,9 +828,12 @@ border-radius: 20px;
 border-color: white;
 </string>
     </property>
+    <property name="currentText">
+     <string>FT Magnitude</string>
+    </property>
     <item>
      <property name="text">
-      <string>FT Magintude</string>
+      <string>FT Magnitude</string>
      </property>
     </item>
     <item>
@@ -840,12 +843,12 @@ border-color: white;
     </item>
     <item>
      <property name="text">
-      <string>FT Imaginary</string>
+      <string>FT Real</string>
      </property>
     </item>
     <item>
      <property name="text">
-      <string>FT Real</string>
+      <string>FT Imaginary</string>
      </property>
     </item>
    </widget>
@@ -875,7 +878,7 @@ border-color: white;
     </property>
     <item>
      <property name="text">
-      <string>FT Magintude</string>
+      <string>FT Magnitude</string>
      </property>
     </item>
     <item>
@@ -920,7 +923,7 @@ border-color: white;
     </property>
     <item>
      <property name="text">
-      <string>FT Magintude</string>
+      <string>FT Magnitude</string>
      </property>
     </item>
     <item>
@@ -965,7 +968,7 @@ border-color: white;
     </property>
     <item>
      <property name="text">
-      <string>FT Magintude</string>
+      <string>FT Magnitude</string>
      </property>
     </item>
     <item>

@@ -38,20 +38,23 @@ class ImageWidget(QWidget):
             
             painter.drawPixmap(self.rect(), scaled_pixmap)
 
+    
     def load_image(self, image_path):
         img = QImage(image_path)
         grayscale_image = img.convertToFormat(QImage.Format_Grayscale8)  
         self.pixmap = QPixmap.fromImage(grayscale_image)
+       
         # repaint
         self.update() 
         
-        # read image for processing
+        # read image for processing and convert to grayscale
         self.image = Image.open(image_path).convert('L')
         # sure the resized_img is the size of widget 
         self.resized_img = self.image.resize((self.width(), self.height()))
-        # calcilate the fft components 
+        # calculate the fft components 
         self.calculate_ft_components()
-
+        
+        #initalize drawing for the magnitude  
         self.comp_widget.display_component(self.ft_components_images['FT Magnitude'])
 
 
@@ -80,8 +83,7 @@ class ImageWidget(QWidget):
         phase = np.angle(fft_shifted).astype(np.uint8)
 
         # Compute the real and imaginary components
-        real = 15 * np.log(np.abs(np.real(fft_shifted)) +
-                           1e-10).astype(np.uint8)
+        real = 15 * np.log(np.abs(np.real(fft_shifted)) + 1e-10).astype(np.uint8)
        
         imaginary = fft_shifted.imag.astype(np.uint8)
 
@@ -97,4 +99,6 @@ class ImageWidget(QWidget):
         self.ft_components['FT Phase'] = np.angle(fft_shifted)
         self.ft_components['FT Real'] = fft_shifted.real
         self.ft_components['FT Imaginary'] = fft_shifted.imag
+
+        
 
