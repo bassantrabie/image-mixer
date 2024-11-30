@@ -32,8 +32,15 @@ class CompWidget(QWidget):
             painter.drawPixmap(self.rect(), scaled_pixmap)
    
     def display_component(self,comp ):
-        qt_image = ImageQt.ImageQt(comp)
-        self.pixmap = QPixmap.fromImage(qt_image)
+        qimage = QImage(
+        comp.tobytes(),
+        comp.width,
+        comp.height,
+        comp.width,  
+        QImage.Format_Grayscale8
+    )
+    # Convert QImage to QPixmap
+        self.pixmap = QPixmap.fromImage(qimage)  
         self.update()
     
     
