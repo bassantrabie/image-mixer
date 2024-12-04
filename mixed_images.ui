@@ -215,8 +215,8 @@ border-radius: 20px;</string>
    <widget class="QPushButton" name="PushButton_Mix">
     <property name="geometry">
      <rect>
-      <x>1420</x>
-      <y>500</y>
+      <x>1550</x>
+      <y>510</y>
       <width>191</width>
       <height>31</height>
      </rect>
@@ -311,53 +311,6 @@ color:white;</string>
      <string>Selected Area</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="RadioButton_Inside">
-    <property name="geometry">
-     <rect>
-      <x>1410</x>
-      <y>620</y>
-      <width>121</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>8</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color:#1f2833;
-color:white;</string>
-    </property>
-    <property name="text">
-     <string>Inside Region</string>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="RadioButton_Outside">
-    <property name="geometry">
-     <rect>
-      <x>1580</x>
-      <y>620</y>
-      <width>131</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color:#1f2833;
-color:white;</string>
-    </property>
-    <property name="text">
-     <string>Outside Region</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
@@ -380,52 +333,6 @@ color:white;</string>
     </property>
     <property name="text">
      <string>Select Mode</string>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="RadioButton_RealandImg">
-    <property name="geometry">
-     <rect>
-      <x>1580</x>
-      <y>730</y>
-      <width>151</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color:#1f2833;
-color:white;</string>
-    </property>
-    <property name="text">
-     <string>Real and Imaginary</string>
-    </property>
-   </widget>
-   <widget class="QRadioButton" name="RadioButton_Magandphase">
-    <property name="geometry">
-     <rect>
-      <x>1410</x>
-      <y>730</y>
-      <width>131</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color:#1f2833;
-color:white;</string>
-    </property>
-    <property name="text">
-     <string>Mag and Phase</string>
     </property>
    </widget>
    <widget class="QPushButton" name="PushButton_deselect">
@@ -1011,25 +918,6 @@ color:white;</string>
      <string>Mixer Output To:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_19">
-    <property name="geometry">
-     <rect>
-      <x>1660</x>
-      <y>499</y>
-      <width>221</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color:#4682B4;
-border: 2px solid #4682B4;
-border-radius: 5px;
-color:white;</string>
-    </property>
-    <property name="text">
-     <string>100%</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="PushButton_Mix_2">
     <property name="geometry">
      <rect>
@@ -1057,6 +945,114 @@ color:white;
      <string>BeamForming</string>
     </property>
    </widget>
+   <widget class="QRadioButton" name="RadioButton_Inside">
+    <property name="geometry">
+     <rect>
+      <x>1420</x>
+      <y>630</y>
+      <width>114</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>8</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#1f2833;
+color:white;</string>
+    </property>
+    <property name="text">
+     <string>Inside Region</string>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="RadioButton_Outside">
+    <property name="geometry">
+     <rect>
+      <x>1580</x>
+      <y>630</y>
+      <width>126</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#1f2833;
+color:white;</string>
+    </property>
+    <property name="text">
+     <string>Outside Region</string>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="RadioButton_RealandImg">
+    <property name="geometry">
+     <rect>
+      <x>1580</x>
+      <y>730</y>
+      <width>161</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#1f2833;
+color:white;</string>
+    </property>
+    <property name="text">
+     <string>Real and Imaginary</string>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="RadioButton_Magandphase">
+    <property name="geometry">
+     <rect>
+      <x>1410</x>
+      <y>730</y>
+      <width>151</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#1f2833;
+color:white;</string>
+    </property>
+    <property name="text">
+     <string>Mag and Phase</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
    <zorder>frame</zorder>
    <zorder>label</zorder>
    <zorder>label_2</zorder>
@@ -1074,11 +1070,7 @@ color:white;
    <zorder>RadioButton_Select_out1</zorder>
    <zorder>RadioButton_Select_out2</zorder>
    <zorder>label_6</zorder>
-   <zorder>RadioButton_Inside</zorder>
-   <zorder>RadioButton_Outside</zorder>
    <zorder>label_7</zorder>
-   <zorder>RadioButton_RealandImg</zorder>
-   <zorder>RadioButton_Magandphase</zorder>
    <zorder>PushButton_deselect</zorder>
    <zorder>Widget_Comp_2</zorder>
    <zorder>Widget_Img_2</zorder>
@@ -1100,8 +1092,11 @@ color:white;
    <zorder>ComboBox_FTComp_2</zorder>
    <zorder>ComboBox_FTComp_4</zorder>
    <zorder>label_16</zorder>
-   <zorder>label_19</zorder>
    <zorder>PushButton_Mix_2</zorder>
+   <zorder>RadioButton_Inside</zorder>
+   <zorder>RadioButton_Outside</zorder>
+   <zorder>RadioButton_RealandImg</zorder>
+   <zorder>RadioButton_Magandphase</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
