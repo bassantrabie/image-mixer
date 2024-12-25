@@ -5,24 +5,40 @@ from PIL import Image, ImageQt, ImageEnhance
 from numpy.fft import ifft2, ifftshift
 import numpy as np
 from scipy.fft import fft2, fftshift
+import logging
+import copy
+logging.basicConfig(filemode="a", filename="our_log.log",
+                    format="(%(asctime)s) | %(name)s| %(levelname)s | => %(message)s", level=logging.INFO)
+
 class ImageWidget(QWidget):
     def __init__(self, image_path=None, parent=None , comp_widget=None ):
         super(ImageWidget, self).__init__(parent)
-        
-        self.pixmap = None  
-        self.image=None
-        self.resized_img=None
-        self.ft_components={}
-        self.comp_widget=comp_widget
+        self.__pixmap = None  
+        self.__image=None
+        self.__resized_img=None
+        self.__ft_components={}
+
+        self.__comp_widget=comp_widget
+
+        self.__pressed_mouse=False
+        self.__changes_image=None
+        self.__pressed_pos_x=0
+        self.__pressed_pos_y=0
+        self.__Move_pos_x=0
+        self.__Move_pos_y=0
+        self.__brightness = 0
+        self.__contrast = 0
 
 
+
+        self.setMouseTracking(True)
 
         if image_path:
             self.load_image(image_path)
     
     # automatically run to paint the img
     def paintEvent(self, event):
-        if self.pixmap:
+        if self.__pixmap:
             painter = QPainter(self)
             # make img border raduis 
             rect = QRectF(self.rect())
@@ -31,7 +47,7 @@ class ImageWidget(QWidget):
             painter.setClipPath(path)
            
             # resize the img 
-            scaled_pixmap = self.pixmap.scaled(
+            scaled_pixmap = self.__pixmap.scaled(
                 # set its geomerty from the main
                 self.size(),
                 Qt.KeepAspectRatioByExpanding,
@@ -42,28 +58,34 @@ class ImageWidget(QWidget):
 
     
     def load_image(self, image_path):
-        # img = QImage(image_path)
-        # grayscale_image = img.convertToFormat(QImage.Format_Grayscale8)  
-        # self.pixmap = QPixmap.fromImage(grayscale_image)
-       
-
+        try:
+            logging.info("Image uploaded successfully.")
+            # read image for processing and convert to grayscale
+            self.__image = Image.open(image_path).convert('L')
+            # sure the resized_img is the size of widget 
+            self.__resized_img = self.__image.resize((self.width(), self.height()))
+            np_arr=np.array(self.__resized_img )
+            
+            self.__changes_image=copy.deepcopy(np_arr)
+            
+            self.__pixmap=self.convert_np_pixmap(np_arr)
+            slider=self.__comp_widget.get_slider()
+            slider.setValue(100)
+            # repaint
+            self.update() 
         
-        # read image for processing and convert to grayscale
-        self.image = Image.open(image_path).convert('L')
-        # sure the resized_img is the size of widget 
-        self.resized_img = self.image.resize((self.width(), self.height()))
-        np_arr=np.array(self.resized_img )
-        self.pixmap=self.convert_np_pixmap(np_arr)
-       
-        # repaint
-        self.update() 
-       
-        # calculate the fft components 
-        self.calculate_ft_components()
-        combox=self.comp_widget.get_combox()
-        # print(combox.currentText())
-        #initalize drawing for the magnitude  
-        self.comp_widget.display_component(self.ft_components[combox.currentText()] , 0)
+            # calculate the fft components 
+            self.calculate_ft_components()
+            combox=self.__comp_widget.get_combox()
+            #initalize drawing for the magnitude  
+            self.__comp_widget.set_component(self.__ft_components[combox.currentText()] , combox.currentText())
+            
+            function_update_ouput=self.__comp_widget.get_output_display_funciton()
+            function_update_ouput()
+        
+        except Exception as e:
+            logging.warning(f"Error opening image: {e}")
+        
 
 
     
@@ -72,13 +94,18 @@ class ImageWidget(QWidget):
         file_path, _ = QFileDialog.getOpenFileName(self, "Select Image", "", "Image Files (*.png *.jpg *.bmp *.jpeg *.gif);;All Files (*)")
         if file_path:
             self.load_image(file_path) 
+
+        else:
+            logging.info(f"Didn't choose an Image")
+
+
     
 
 
 
     
     def calculate_ft_components(self):
-        fft = fft2(self.resized_img)
+        fft = fft2(self.__resized_img)
 
         # Shift the zero-frequency component to the center
         fft_shifted = fftshift(fft)
@@ -93,61 +120,14 @@ class ImageWidget(QWidget):
 
     
         # Store the numerical components
-        self.ft_components['FT Magnitude'] ={'org': np.abs(fft_shifted)  , 'np_img':mag_log}
-        self.ft_components['FT Phase']     ={'org':np.angle(fft_shifted) , 'np_img':phase}
-        self.ft_components['FT Real']      ={'org':np.real(fft_shifted)  , 'np_img':real}
-        self.ft_components['FT Imaginary'] ={'org': np.imag(fft_shifted) , 'np_img':imaginary}
+        self.__ft_components['FT Magnitude'] ={'org': np.abs(fft_shifted)  , 'np_img':mag_log}
+        self.__ft_components['FT Phase']     ={'org':np.angle(fft_shifted) , 'np_img':phase}
+        self.__ft_components['FT Real']      ={'org':np.real(fft_shifted)  , 'np_img':real}
+        self.__ft_components['FT Imaginary'] ={'org': np.imag(fft_shifted) , 'np_img':imaginary}
+
+        logging.info("Calculated FFT to uploaded Image")
 
 
-    # def inverse_fourier(self, data=None):
-    #     fft_combined = self.ft_components['FT Real'] + 1j * self.ft_components['FT Imaginary']
-
-    #     # Perform the inverse FFT
-    #     ifft_shifted = ifftshift(fft_combined)
-    #     reconstructed_img = ifft2(ifft_shifted)
-
-    #     # Take the real part of the inverse FFT result
-    #     reconstructed_img = np.real(reconstructed_img)
-
-    #     # Normalize the image to 0-255 and convert to uint8
-    #     reconstructed_img_normalized = (255 * (reconstructed_img - np.min(reconstructed_img)) / 
-    #                                     (np.max(reconstructed_img) - np.min(reconstructed_img))).astype(np.uint8)
-
-    #     # Convert the numpy array to a PIL image
-    #     pil_image = Image.fromarray(reconstructed_img_normalized, mode='L')
-
-    #     # Convert the PIL image to QImage for use in the GUI
-    #     qim = QImage(
-    #         pil_image.tobytes(),
-    #         pil_image.width,
-    #         pil_image.height,
-    #         pil_image.width,
-    #         QImage.Format_Grayscale8,
-    #     )
-
-    #     # Convert QImage to QPixmap and store it for display
-    #     self.pixmap = QPixmap.fromImage(qim)
-
-    #     # Update the GUI widget to display the reconstructed image
-    #     self.update()
-   
-    def inverse_fourier(self, data):
-
-        # imag = data[1] 
-        # fft_combined = data[0] + 1j * imag
-        fft_combined = data[0] * np.exp(1j * data[1])
-
-        fft_combined = np.fft.ifftshift(fft_combined)
-        reconstructed_img = ifft2(fft_combined)
-
-        reconstructed_img = np.real(reconstructed_img)
-
-        reconstructed_img_normalized = (255 * (reconstructed_img - np.min(reconstructed_img)) / 
-                                        (np.max(reconstructed_img) - np.min(reconstructed_img))).astype(np.uint8)
-        reconstructed_img_normalized = np.clip(reconstructed_img_normalized, 0, 255).astype(np.uint8)       
-        self.pixmap = self.convert_np_pixmap(reconstructed_img_normalized)
-        self.update()
-    
 
     def convert_np_pixmap(self, np_arr):
         # Ensure the numpy array is in the correct format (grayscale)
@@ -185,3 +165,117 @@ class ImageWidget(QWidget):
         np_array = np.frombuffer(ptr, dtype=np.uint8).reshape((height, width))
         
         return np_array
+
+    def mousePressEvent(self, event):
+            """
+            Save the initial mouse position when the mouse is pressed.
+
+            Parameters:
+                event (QMouseEvent): The mouse event object.
+            """
+            self.__pressed_pos_x = event.x()
+            self.__pressed_pos_y = event.y()
+            # print(f"Mouse pressed at ({self.pressed_pos_x}, {self.pressed_pos_y})")
+            self.__pressed_mouse = True
+
+    def mouseMoveEvent(self, event):
+        if self.__pressed_mouse and self.__pixmap is not None:
+            # Calculate mouse movement deltas
+            delta_x = event.x() - self.__pressed_pos_x
+            delta_y = event.y() - self.__pressed_pos_y
+
+            # Image dimensions for normalization
+            image_width = self.__changes_image.shape[1]
+            image_height = self.__changes_image.shape[0]
+
+            # Normalize deltas and scale
+            normalized_dx = delta_x / image_width
+            normalized_dy = delta_y / image_height
+
+            # Adjust brightness and contrast with range limits
+            new_brightness = self.__brightness + normalized_dx * 100
+            new_contrast = self.__contrast + normalized_dy * 40
+
+            # Strictly clamp values to -100 and 100
+            self.__brightness = max(-90, min(90, new_brightness))
+            self.__contrast = max(-90, min(90, new_contrast))
+            # Apply brightness and contrast to the image
+            changed_image = self.apply_brightness_contrast(self.__changes_image, self.__brightness, self.__contrast)
+            # Update pixmap and redraw
+            self.__pixmap = self.convert_np_pixmap(changed_image)
+            self.update()
+
+            # Update last mouse position
+            self.__pressed_pos_x = event.x()
+            self.__pressed_pos_y = event.y()
+
+            # print(f"Updated Brightness: {self.brightness}, Contrast: {self.contrast}")
+
+    def apply_brightness_contrast(self, image, brightness=0, contrast=0):
+        # Strictly clamp brightness and contrast to -100 and 100
+        brightness = max(-100, min(100, brightness))
+        contrast = max(-100, min(100, contrast))
+
+        brightness_factor = (brightness + 255) / 255.0
+        brightness_enhancer = ImageEnhance.Brightness(
+            self.__image.resize(self.__resized_img.size))
+        img_with_brightness_adjusted = brightness_enhancer.enhance(
+            brightness_factor)
+
+        # Adjust contrast
+        contrast_factor = (self.__contrast + 127) / 127.0
+        contrast_enhancer = ImageEnhance.Contrast(img_with_brightness_adjusted)
+        self.__resized_img = contrast_enhancer.enhance(contrast_factor)
+
+
+        # calculate the fft components 
+        self.calculate_ft_components()
+        combox=self.__comp_widget.get_combox()
+        #initalize drawing for the magnitude  
+        self.__comp_widget.set_component(self.__ft_components[combox.currentText()] , combox.currentText())
+        
+        function_update_ouput=self.__comp_widget.get_output_display_funciton()
+        function_update_ouput()
+
+        # Convert to float for calculations
+        image = image.astype(np.float32)
+
+        # Brightness adjustment
+        if brightness != 0:
+            image += brightness
+
+        # Contrast adjustment
+        if contrast != 0:
+            f = 131 * (contrast + 127) / (127 * (131 - contrast))
+            image = f * (image - 127) + 127
+
+        # Clip values to the valid range [0, 255]
+        image = np.clip(image, 0, 255)
+
+        # Convert back to uint8 for display
+        return image.astype(np.uint8)
+
+            
+    def mouseReleaseEvent(self, event):
+        """
+        Handle mouse release events to finalize changes.
+
+        Parameters:
+            event (QMouseEvent): The mouse event object.
+        """
+        if self.__pressed_mouse:
+            # print(f"Final Brightness: {self.brightness}, Final Contrast: {self.contrast}")
+            self.__pressed_mouse = False
+            self.__Move_pos_x = 0
+            self.__Move_pos_y = 0
+   
+    def is_uploaded_img(self):
+        if self.__image is not None :
+            return True
+        return False
+    
+    def get_fft_components(self):
+        return self.__ft_components
+    
+
+

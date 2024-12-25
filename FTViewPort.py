@@ -2,26 +2,35 @@ from PyQt5.QtGui import QPainter, QPixmap, QImage, QPainterPath, QPen , QLinearG
 from PyQt5.QtCore import QRectF, Qt, QPoint
 from PyQt5.QtWidgets import QWidget
 import numpy as np
-class CompWidget(QWidget):
+import PyQt5
+import logging
+
+logging.basicConfig(filemode="a", filename="our_log.log",
+                    format="(%(asctime)s) | %(name)s| %(levelname)s | => %(message)s", level=logging.INFO)
+class CompWidget(QWidget ):
     all_widgets = []
     num_of_widgets=0
-    def __init__(self, comp=None, parent=None , attachements=None):
+    def __init__(self, comp=None, parent=None , attachements=None ,function_tst=None):
         super(CompWidget, self).__init__(parent)
-        self.widget_num= CompWidget.num_of_widgets
+        self.__widget_num= CompWidget.num_of_widgets
         CompWidget.num_of_widgets+=1
-        self.Component=comp
-        self.pixmap = None
-        self.rect_start = None  # To store the starting point of the rectangle
-        self.rect_end = None    # To store the current position for the rectangle
-        self.data=None
-        self.cropped_data=None
+        self.__Component=comp
+        self.__pixmap = None
+        self.__rect_start = None  # To store the starting point of the rectangle
+        self.__rect_end = None    # To store the current position for the rectangle
         
-        self.combox=attachements['combox']
-        self.slider=attachements['slider']
+        self.__data=None
+        self.__cropped_data=None
+        
+        self.__combox=attachements['combox']
+        self.__slider=attachements['slider']
         CompWidget.all_widgets.append(self)
-    
+
+        self.function_tst=function_tst
+
+    # override on the Qwidget
     def paintEvent(self, event):
-        if self.pixmap:
+        if self.__pixmap:
             painter = QPainter(self)
 
             # Make image border radius
@@ -31,7 +40,7 @@ class CompWidget(QWidget):
             painter.setClipPath(path)
 
             # Resize the image
-            scaled_pixmap = self.pixmap.scaled(
+            scaled_pixmap = self.__pixmap.scaled(
                 self.size(),
                 Qt.KeepAspectRatioByExpanding,
                 Qt.SmoothTransformation
@@ -39,45 +48,54 @@ class CompWidget(QWidget):
 
             # Draw the pixmap
             painter.drawPixmap(self.rect(), scaled_pixmap)
-    
-            if self.rect_start and self.rect_end:
-                rect = QRectF(self.rect_start, self.rect_end)
+            if self.__rect_start and self.__rect_end:
+                rect = QRectF(self.__rect_start, self.__rect_end)
                 transparent_blue = QColor(0, 0, 255, 20)  
                 painter.setBrush(transparent_blue)  
                 painter.setPen(Qt.transparent)  
                 painter.drawRect(rect)
-
                 pen = QPen(Qt.blue, 2)
                 painter.setPen(pen)
-                rect = QRectF(self.rect_start, self.rect_end)
+                rect = QRectF(self.__rect_start, self.__rect_end)
                 painter.drawRect(rect)
+
 
     def mousePressEvent(self, event):
         # Start the rectangle drawing at mouse click position
-        self.rect_start = event.pos()
-        self.rect_end = self.rect_start  # Set end point to the start initially
+        self.__rect_start = event.pos()
+        self.__rect_end = self.rect_start  # Set end point to the start initially
+
 
     def mouseMoveEvent(self, event):  
         # Update the end point while the mouse moves
-        if self.rect_start:
-            self.rect_end = event.pos()
-            CompWidget.draw_rectangle_on_all_widgets(self.rect_start ,self.rect_end )
+        if self.__rect_start:
+            self.__rect_end = event.pos()
+            CompWidget.draw_rectangle_on_all_widgets(self.__rect_start ,self.__rect_end )
+            
+            # self.function_tst()
+        
 
     def mouseReleaseEvent(self, event):
         # Complete the rectangle drawing on mouse release
-        if self.rect_start and self.rect_end:
-            self.rect_end = event.pos()
-            CompWidget.draw_rectangle_on_all_widgets(self.rect_start ,self.rect_end )
-            # CompWidget.extract_data_inside_rectangle()
+        if self.__rect_start and self.__rect_end:
+            self.__rect_end = event.pos()
+            CompWidget.draw_rectangle_on_all_widgets(self.__rect_start ,self.__rect_end )
+            self.function_tst()
+           
 
            
 
-    def display_component(self, Component , index):
+    def set_component(self, Component , text):
         # Convert component to QPixmap
         if Component:
-            self.combox.setCurrentIndex(index)
-            self.data=Component['org']
-            self.pixmap = self.convert_np_pixmap(Component['np_img'])
+            self.__combox.setCurrentText(text)
+            self.__data=Component['org']
+            self.__pixmap = self.convert_np_pixmap(Component['np_img'])
+
+            if self.__rect_start is None:
+                self.__rect_start = PyQt5.QtCore.QPoint(41, 48)
+                self.__rect_end = PyQt5.QtCore.QPoint(253, 303)
+            CompWidget.draw_rectangle_on_all_widgets(self.__rect_start ,self.__rect_end )            
             self.update()
 
 
@@ -120,53 +138,107 @@ class CompWidget(QWidget):
         
         return np_array
 
+     
+    def get_data_shape(self):
+        # print(f"lengthhh : {len(self.cropped_data)}")
+        if self.__data is not None:
+            return self.__data.shape
+        else : return 0
+       
 
+
+    def get_crop_data_widget(self):
+        return self.__cropped_data
+    
+    def get_Curr_Mode(self):
+        return  f"{self.__combox.currentText()}"
+    
+    def get_widget_number(self):
+        return self.__widget_num
+    
+    def get_slider_value(self):
+        return self.__slider.value()
+    
+    def get_combox(self):
+        return self.__combox
+    
+    
+    def get_slider(self):
+        return self.__slider
+    
+    def get_output_display_funciton(self):
+        return self.function_tst
 
 
     @classmethod
     def draw_rectangle_on_all_widgets(cls, start, end):
         """This method draws the same rectangle on all widgets"""
         for widget in cls.all_widgets:
-            if widget.pixmap:
-                widget.rect_start = start
-                widget.rect_end = end
+            if widget.__pixmap:
+                logging.info(f"here in the widget number : {widget.__widget_num}")
+                widget.__rect_start = start
+                widget.__rect_end = end
                 widget.update()  # Repaint each widget
+
+    @classmethod
+    def clear_rectangle_on_all_widgets(cls):
+        logging.info("Remove the Rectangles from the all widgets")
+        for widget in cls.all_widgets:
+            if widget.__pixmap:
+                widget.__rect_start = None
+                widget.__rect_end = None
+                widget.update()  # Repaint each widget
+
+
 
     
     @classmethod
     def extract_data_inside_rectangle(cls , mode):
         for widget in cls.all_widgets:
-            if widget.rect_start and widget.rect_end and widget.pixmap:
+            if widget.__rect_start and widget.__rect_end and widget.__pixmap:
+                if (widget.__rect_start == widget.__rect_end ):
+                    rect_start  = PyQt5.QtCore.QPoint(41, 48)
+                    rect_end = PyQt5.QtCore.QPoint(253, 303)
+                else:
+                    rect_start =widget.__rect_start
+                    rect_end   =widget.__rect_end
+
                 # Calculate the QRectF from the rectangle start and end
-                rect = QRectF(widget.rect_start, widget.rect_end)
+                rect = QRectF(rect_start, rect_end)
                 start_x = int(rect.x())
                 start_y = int(rect.y())
                 width = int(rect.width())
                 height = int(rect.height())
                
                 if mode=='InsideRegion':           
-                    mask = np.zeros(widget.data.shape, dtype=np.float32)       
+                    mask = np.zeros(widget.__data.shape, dtype=np.float32)       
                     mask[start_y:start_y+height, start_x:start_x+width] = 1
                 else:
-                    mask =  np.ones(widget.data.shape, dtype=np.float32)       
+                    mask =  np.ones(widget.__data.shape, dtype=np.float32)       
                     mask[start_y:start_y+height, start_x:start_x+width] = 0
 
                 
-                
-                widget.cropped_data = widget.data* mask
+             
+                widget.__cropped_data = widget.__data* mask
 
+    # @classmethod
+    # def Get_CroppedData(cls):
+    #     data={}
+    #     for widget in cls.all_widgets:
+    #         if widget.cropped_data is not None :
+    #             data[f"{widget.widget_num}"]=[f"{widget.combox.currentText()}" ,widget.slider.value(),widget.cropped_data]
+                
+    #         # else :
+    #         #     print(f"No_cropprd_data in this widget :{widget.widget_num}")
+    #     logging.info("Calculated the Cropped Data")
+    #     return data
+    
     @classmethod
-    def Get_CroppedData(cls):
-        data={}
+    def Get_All_created_widgets(cls):
+        exist_widgets=[]
         for widget in cls.all_widgets:
-            if widget.cropped_data is not None :
-                data[f"{widget.widget_num}"]=[f"{widget.combox.currentText()}" ,widget.slider.value(),widget.cropped_data]
-                
-            # else :
-            #     print(f"No_cropprd_data in this widget :{widget.widget_num}")
-        return data
+            if widget.__cropped_data is not None :
+                exist_widgets.append(widget)
+        return exist_widgets
 
-
-
-    def get_combox(self):
-        return self.combox
+   

@@ -5,18 +5,26 @@ from PIL import Image, ImageQt, ImageEnhance
 from numpy.fft import ifft2, ifftshift
 import numpy as np
 from scipy.fft import fft2, fftshift
+
+from FTViewPort import CompWidget
+
+import logging
+logging.basicConfig(filemode="a", filename="our_log.log",
+                    format="(%(asctime)s) | %(name)s| %(levelname)s | => %(message)s", level=logging.INFO)
+
+
 class Output_Widget(QWidget):
     def __init__(self, parent=None ):
         super(Output_Widget, self).__init__(parent)
         # mag&phase   or real&Img
         self.Component_Mode=None
         self.fft_combined=None
-
         self.pixmap=None
+        self.shape=(371, 311)
 
         # automatically run to paint the img
     def paintEvent(self, event):
-        if self.pixmap:
+        if self.__pixmap:
             painter = QPainter(self)
             # make img border raduis 
             rect = QRectF(self.rect())
@@ -25,7 +33,7 @@ class Output_Widget(QWidget):
             painter.setClipPath(path)
            
             # resize the img 
-            scaled_pixmap = self.pixmap.scaled(
+            scaled_pixmap = self.__pixmap.scaled(
                 # set its geomerty from the main
                 self.size(),
                 Qt.KeepAspectRatioByExpanding,
@@ -36,58 +44,100 @@ class Output_Widget(QWidget):
 
 
 
-    def inverse_fourier(self , fft_combined):
+    def inverse_fourier(self ):
+        if self.fft_combined is not None:
+            fft_combined = np.fft.ifftshift(self.fft_combined)
+            reconstructed_img = ifft2(fft_combined)
+            reconstructed_img = np.real(reconstructed_img)
+            range_ = np.max(reconstructed_img) - np.min(reconstructed_img)
 
-        # imag = data[1] 
-        # fft_combined = data[0] + 1j * imag
-        # fft_combined = data[0] * np.exp(1j * data[1])
+            if range_ == 0:
+                # Avoid division by zero by setting normalized image to zeros or a constant value
+                reconstructed_img_normalized = np.zeros_like(reconstructed_img, dtype=np.uint8)
+            else:
+                # Perform normalization as usual
+                reconstructed_img_normalized = (255 * (reconstructed_img - np.min(reconstructed_img)) / range_).astype(np.uint8)
 
-        fft_combined = np.fft.ifftshift(fft_combined)
-        reconstructed_img = ifft2(fft_combined)
+            reconstructed_img_normalized = np.clip(reconstructed_img_normalized, 0, 255).astype(np.uint8)       
+            self.pixmap = self.convert_np_pixmap(reconstructed_img_normalized)
+            logging.info("Calculated FFT inverse Correctly and update the output widget")
+            self.update()
 
-        reconstructed_img = np.real(reconstructed_img)
 
-        reconstructed_img_normalized = (255 * (reconstructed_img - np.min(reconstructed_img)) / 
-                                        (np.max(reconstructed_img) - np.min(reconstructed_img))).astype(np.uint8)
-        reconstructed_img_normalized = np.clip(reconstructed_img_normalized, 0, 255).astype(np.uint8)       
-        self.pixmap = self.convert_np_pixmap(reconstructed_img_normalized)
-        self.update()
 
-    # this function take the data and combine it
-    def Set_Cropped_Data(self , all_data , component_Mode):
-
-        self.fft_combined=np.zeros_like(all_data['0'][2].shape ,  dtype=np.float64)
-        # print(all_data)
-
+    def Calculate_Cropped_Data(self , current_Mode):
+        created_Components=CompWidget.Get_All_created_widgets()
+        if len(created_Components)>=0:
         
-        if component_Mode=='Magandphase':
-            all_Magnitudes = np.zeros_like(all_data['0'][2], dtype=np.float64)
-            all_phases = np.zeros_like(all_data['0'][2], dtype=np.float64)
+            if current_Mode=='Magandphase':
+                self.fft_combined = np.zeros(self.shape, dtype=np.complex128)
+                all_Magnitudes = np.zeros(self.shape, dtype=np.float64)
+                all_phases = np.zeros(self.shape, dtype=np.complex128)
+                
+                for comp in created_Components:
+                    if comp.get_Curr_Mode()=='FT Magnitude':
+                        all_Magnitudes += (comp.get_slider_value()/100) *comp.get_crop_data_widget()             
+                    if comp.get_Curr_Mode()=='FT Phase':
+                        all_phases += (comp.get_slider_value()/100) *np.exp(1j * comp.get_crop_data_widget())
+                    
+                self.fft_combined= all_Magnitudes * np.exp(1j * np.angle(all_phases))
 
-            for _ , value in all_data.items():
-                if value[0]=='FT Magnitude':
-                    all_Magnitudes += (value[1]/100) *value[2]
-                elif value[0]=='FT Phase':
-                    all_phases+= (value[1]/100) *value[2]
+            else:    
+                    
+                self.fft_combined = np.zeros(self.shape, dtype=np.complex128)
+                all_Real = np.zeros(self.shape, dtype=np.float64)
+                all_Imag = np.zeros(self.shape, dtype=np.complex128)      
 
-            self.fft_combined= all_Magnitudes * np.exp(1j * all_phases)
+                for comp in created_Components:
+                    if comp.get_Curr_Mode()=='FT Real':
+                        all_Real += (comp.get_slider_value()/100) *comp.get_crop_data_widget()
+                    if comp.get_Curr_Mode()=='FT Imaginary':
+                        all_Imag += (comp.get_slider_value()/100) *comp.get_crop_data_widget()
 
-        elif component_Mode =='RealandImg':
-            # take the shapee only hereee 
-            all_Real=np.zeros_like(all_data['0'][2], dtype=np.float64)
-            all_Img=np.zeros_like(all_data['0'][2], dtype=np.float64)
-           
-            for _ , value in all_data.items():
-                if value[0]=='FT Real':
-                        all_Real += (value[1]/100) *value[2]
-                elif value[0]=='FT Imaginary':
-                        all_Img+= (value[1]/100) *value[2]
+                self.fft_combined= all_Magnitudes * np.exp(1j * np.angle(all_phases))
+            
+            self.inverse_fourier()
 
-            magnitude = np.sqrt(all_Real**2 + all_Img**2)  # Magnitude
-            phase = np.arctan2(all_Img, all_Real) 
-            self.fft_combined=  magnitude * np.exp(1j * phase)
 
-        self.inverse_fourier( self.fft_combined)
+    # # this function take the data and combine it
+    # def Set_Cropped_Data(self , all_data , component_Mode):
+
+    #     try :
+    #         # Initialize with complex data type since we're dealing with FFT
+    #         self.fft_combined = np.zeros_like(all_data['0'][2], dtype=np.complex128)
+
+    #         if component_Mode=='Magandphase':
+    #             all_Magnitudes = np.zeros_like(all_data['0'][2], dtype=np.float64)
+    #             all_phases = np.zeros_like(all_data['0'][2],  dtype=np.complex128)
+
+    #             for _ , value in all_data.items():
+    #                 if value[0]=='FT Magnitude':
+    #                     all_Magnitudes += (value[1]/100) *value[2]
+    #                 elif value[0]=='FT Phase':
+    #                     all_phases+= (value[1]/100) *np.exp(1j * value[2])
+
+    #             self.fft_combined= all_Magnitudes * np.exp(1j * np.angle(all_phases))
+
+    #         elif component_Mode =='RealandImg':
+    #             # take the shapee only hereee 
+    #             all_Real=np.zeros_like(all_data['0'][2], dtype=np.float64)
+    #             all_Img=np.zeros_like(all_data['0'][2], dtype=np.float64)
+            
+    #             for _ , value in all_data.items():
+    #                 if value[0]=='FT Real':
+    #                         all_Real += (value[1]/100) *value[2]
+    #                 elif value[0]=='FT Imaginary':
+    #                         all_Img+= (value[1]/100) *value[2]
+
+    #             magnitude = np.sqrt(all_Real**2 + all_Img**2)  # Magnitude
+    #             phase = np.arctan2(all_Img, all_Real) 
+    #             self.fft_combined=  magnitude * np.exp(1j * phase)
+
+    #         self.inverse_fourier( self.fft_combined)
+
+    #     except Exception as e:
+    #         logging.error(f"Error in Calculations of Combined Image : {e}")
+    #         logging.info(f"the data is {all_data}")
   
     
     

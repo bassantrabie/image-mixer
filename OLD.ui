@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1927</width>
-    <height>1018</height>
+    <width>1936</width>
+    <height>1030</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -212,33 +212,6 @@ border:4px solid #130f0e;
 border-radius:20px;</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="PushButton_Mix">
-    <property name="geometry">
-     <rect>
-      <x>1550</x>
-      <y>510</y>
-      <width>191</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>10</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color:black;
-border: 2px solid ;
-border-radius: 5px;
-color:white;
-</string>
-    </property>
-    <property name="text">
-     <string>Mix</string>
-    </property>
-   </widget>
    <widget class="QRadioButton" name="RadioButton_Select_out1">
     <property name="geometry">
      <rect>
@@ -256,9 +229,10 @@ color:white;
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:#A48374;
-
-border-radius:20px;</string>
+     <string notr="true">
+color:Black;
+background-color:#A48374;
+</string>
     </property>
     <property name="text">
      <string>Output 1</string>
@@ -281,48 +255,22 @@ border-radius:20px;</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:#A48374;
-
-border-radius:20px;</string>
+     <string notr="true">
+color:Black;
+background-color:#A48374;
+</string>
     </property>
     <property name="text">
      <string>Output 2</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_6">
-    <property name="geometry">
-     <rect>
-      <x>1530</x>
-      <y>565</y>
-      <width>261</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>-1</pointsize>
-      <weight>99</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">Font-size:14px;
-font-weight:1000;
-border-bottom:3px solid black;
-color:black;
-background-color:#A48374;</string>
-    </property>
-    <property name="text">
-     <string>                      Selected Area</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>1540</x>
-      <y>675</y>
-      <width>261</width>
-      <height>31</height>
+      <x>1550</x>
+      <y>650</y>
+      <width>201</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
@@ -340,27 +288,7 @@ color:black;
 background-color:#A48374;</string>
     </property>
     <property name="text">
-     <string>                  Select Mode</string>
-    </property>
-   </widget>
-   <widget class="QFrame" name="frame">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>0</y>
-      <width>1921</width>
-      <height>991</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color:white;
-</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
+     <string>             Select Mode</string>
     </property>
    </widget>
    <widget class="QWidget" name="Widget_Comp_2" native="true">
@@ -375,7 +303,8 @@ background-color:#A48374;</string>
     <property name="styleSheet">
      <string notr="true">background-color:white;
 border:4px solid #130f0e;
-border-radius:20px;</string>
+border-radius:20px;
+</string>
     </property>
    </widget>
    <widget class="QWidget" name="Widget_Img_2" native="true">
@@ -418,8 +347,7 @@ border-radius:20px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color:black;
-background-color:#A48374;</string>
+     <string notr="true">background-color:#A48374;</string>
     </property>
     <property name="maximum">
      <number>100</number>
@@ -444,9 +372,7 @@ background-color:#A48374;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color:black;
-background-color:#A48374;
-</string>
+     <string notr="true">background-color:#A48374;</string>
     </property>
     <property name="maximum">
      <number>100</number>
@@ -471,8 +397,7 @@ background-color:#A48374;
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color:black;
-background-color:#A48374;</string>
+     <string notr="true">background-color:#A48374;</string>
     </property>
     <property name="maximum">
      <number>100</number>
@@ -497,8 +422,7 @@ background-color:#A48374;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color:black;
-background-color:#A48374;</string>
+     <string notr="true">background-color:#A48374;</string>
     </property>
     <property name="maximum">
      <number>100</number>
@@ -530,8 +454,10 @@ background-color:#A48374;</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color:black;
-background-color:#A48374;</string>
+     <string notr="true">
+color:Black;
+background-color:#A48374;
+</string>
     </property>
     <property name="text">
      <string>Original Image</string>
@@ -554,8 +480,10 @@ background-color:#A48374;</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color:black;
-background-color:#A48374;</string>
+     <string notr="true">
+color:Black;
+background-color:#A48374;
+</string>
     </property>
     <property name="text">
      <string>Original Image</string>
@@ -578,8 +506,10 @@ background-color:#A48374;</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color:black;
-background-color:#A48374;</string>
+     <string notr="true">
+color:Black;
+background-color:#A48374;
+</string>
     </property>
     <property name="text">
      <string>Original Image</string>
@@ -602,8 +532,10 @@ background-color:#A48374;</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color:black;
-background-color:#A48374;</string>
+     <string notr="true">
+color:Black;
+background-color:#A48374;
+</string>
     </property>
     <property name="text">
      <string>Original Image</string>
@@ -626,8 +558,12 @@ background-color:#A48374;</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color:black;
-background-color:#A48374;</string>
+     <string notr="true">
+color:Black;
+background-color:#A48374;
+
+
+</string>
     </property>
     <property name="text">
      <string>FT Compenent </string>
@@ -650,8 +586,10 @@ background-color:#A48374;</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color:black;
-background-color:#A48374;</string>
+     <string notr="true">
+color:Black;
+background-color:#A48374;
+</string>
     </property>
     <property name="text">
      <string>FT Compenent </string>
@@ -674,8 +612,10 @@ background-color:#A48374;</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color:black;
-background-color:#A48374;</string>
+     <string notr="true">
+color:Black;
+background-color:#A48374;
+</string>
     </property>
     <property name="text">
      <string>FT Compenent </string>
@@ -698,8 +638,10 @@ background-color:#A48374;</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color:black;
-background-color:#A48374;</string>
+     <string notr="true">
+color:Black;
+background-color:#A48374;
+</string>
     </property>
     <property name="text">
      <string>FT Compenent </string>
@@ -727,8 +669,6 @@ background-color:#A48374;
 border: 2px solid ;
 border-radius: 20px;
 border-color: white;
-
-
 </string>
     </property>
     <property name="currentText">
@@ -907,60 +847,34 @@ border-color: white;
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:#A48374;
-color:white;</string>
+     <string notr="true">
+color:Black;
+background-color:#A48374;
+</string>
     </property>
     <property name="text">
      <string>Mixer Output </string>
     </property>
    </widget>
-   <widget class="QPushButton" name="PushButton_BeamFormaing">
-    <property name="geometry">
-     <rect>
-      <x>1570</x>
-      <y>800</y>
-      <width>191</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>10</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color:black;
-border: 2px solid ;
-border-radius: 5px;
-color:white;
-</string>
-    </property>
-    <property name="text">
-     <string>BeamForming</string>
-    </property>
-   </widget>
    <widget class="QRadioButton" name="RadioButton_Inside">
     <property name="geometry">
      <rect>
-      <x>1420</x>
-      <y>630</y>
+      <x>1450</x>
+      <y>610</y>
       <width>114</width>
       <height>20</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>-1</pointsize>
-      <weight>99</weight>
+      <pointsize>8</pointsize>
+      <weight>75</weight>
       <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">Font-size:14px;
-font-weight:1000;
-color:black;
+     <string notr="true">
+color:Black;
 background-color:#A48374;
 </string>
     </property>
@@ -974,23 +888,21 @@ background-color:#A48374;
    <widget class="QRadioButton" name="RadioButton_Outside">
     <property name="geometry">
      <rect>
-      <x>1690</x>
-      <y>630</y>
+      <x>1720</x>
+      <y>610</y>
       <width>126</width>
       <height>20</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>-1</pointsize>
-      <weight>99</weight>
+      <weight>75</weight>
       <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">Font-size:14px;
-font-weight:1000;
-color:black;
+     <string notr="true">
+color:Black;
 background-color:#A48374;
 </string>
     </property>
@@ -1004,23 +916,21 @@ background-color:#A48374;
    <widget class="QRadioButton" name="RadioButton_RealandImg">
     <property name="geometry">
      <rect>
-      <x>1690</x>
-      <y>730</y>
+      <x>1720</x>
+      <y>720</y>
       <width>161</width>
       <height>20</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>-1</pointsize>
-      <weight>99</weight>
+      <weight>75</weight>
       <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">Font-size:14px;
-font-weight:1000;
-color:black;
+     <string notr="true">
+color:Black;
 background-color:#A48374;
 </string>
     </property>
@@ -1037,10 +947,38 @@ background-color:#A48374;
    <widget class="QRadioButton" name="RadioButton_Magandphase">
     <property name="geometry">
      <rect>
-      <x>1420</x>
-      <y>730</y>
+      <x>1460</x>
+      <y>720</y>
       <width>151</width>
       <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+color:Black;
+background-color:#A48374;
+</string>
+    </property>
+    <property name="text">
+     <string>Mag and Phase</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_17">
+    <property name="geometry">
+     <rect>
+      <x>1550</x>
+      <y>530</y>
+      <width>201</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
@@ -1053,60 +991,14 @@ background-color:#A48374;
     <property name="styleSheet">
      <string notr="true">Font-size:14px;
 font-weight:1000;
+border-bottom:3px solid black;
 color:black;
-background-color:#A48374;
-</string>
+background-color:#A48374;</string>
     </property>
     <property name="text">
-     <string>Mag and Phase</string>
-    </property>
-    <property name="checked">
-     <bool>false</bool>
+     <string>             Select Area</string>
     </property>
    </widget>
-   <zorder>frame</zorder>
-   <zorder>label_5</zorder>
-   <zorder>label</zorder>
-   <zorder>label_2</zorder>
-   <zorder>label_3</zorder>
-   <zorder>label_4</zorder>
-   <zorder>Widget_Img_1</zorder>
-   <zorder>Widget_Img_3</zorder>
-   <zorder>Widget_Comp_4</zorder>
-   <zorder>Widget_Comp_3</zorder>
-   <zorder>Widget_Img_4</zorder>
-   <zorder>Output_1</zorder>
-   <zorder>Output_2</zorder>
-   <zorder>PushButton_Mix</zorder>
-   <zorder>RadioButton_Select_out1</zorder>
-   <zorder>RadioButton_Select_out2</zorder>
-   <zorder>label_6</zorder>
-   <zorder>label_7</zorder>
-   <zorder>Widget_Comp_2</zorder>
-   <zorder>Widget_Img_2</zorder>
-   <zorder>Widget_Comp_1</zorder>
-   <zorder>horizontalSlider_3</zorder>
-   <zorder>horizontalSlider_4</zorder>
-   <zorder>horizontalSlider_1</zorder>
-   <zorder>horizontalSlider_2</zorder>
-   <zorder>label_8</zorder>
-   <zorder>label_9</zorder>
-   <zorder>label_10</zorder>
-   <zorder>label_11</zorder>
-   <zorder>label_12</zorder>
-   <zorder>label_13</zorder>
-   <zorder>label_14</zorder>
-   <zorder>label_15</zorder>
-   <zorder>ComboBox_FTComp_1</zorder>
-   <zorder>ComboBox_FTComp_3</zorder>
-   <zorder>ComboBox_FTComp_2</zorder>
-   <zorder>ComboBox_FTComp_4</zorder>
-   <zorder>label_16</zorder>
-   <zorder>PushButton_BeamFormaing</zorder>
-   <zorder>RadioButton_Inside</zorder>
-   <zorder>RadioButton_Outside</zorder>
-   <zorder>RadioButton_RealandImg</zorder>
-   <zorder>RadioButton_Magandphase</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

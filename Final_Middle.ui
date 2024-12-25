@@ -1,0 +1,1503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TabWidget</class>
+ <widget class="QTabWidget" name="TabWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1907</width>
+    <height>1023</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>TabWidget</string>
+  </property>
+  <property name="currentIndex">
+   <number>1</number>
+  </property>
+  <widget class="QWidget" name="tab">
+   <attribute name="title">
+    <string>Page</string>
+   </attribute>
+   <widget class="QWidget" name="Widget_Img_1" native="true">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>311</width>
+      <height>351</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+border-radius:20px;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_12">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>651</width>
+      <height>431</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#A48374;
+border:4px solid #130f0e;
+border-radius:20px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="ComboBox_FTComp_3">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>490</y>
+      <width>291</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+border:4px solid #2e394b;;
+border-radius:5px;</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>FT Magnitude</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>FT Phase</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>FT Real</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>FT Imaginary</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QWidget" name="Widget_Img_3" native="true">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>570</y>
+      <width>311</width>
+      <height>351</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+border-radius:20px;</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="Widget_Comp_1" native="true">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>60</y>
+      <width>311</width>
+      <height>351</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+border-radius:20px;</string>
+    </property>
+   </widget>
+   <widget class="QSlider" name="horizontalSlider_1">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>281</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:5px;
+border:4px solid black;
+color:#2e394b;
+background-color:#A48374;
+
+</string>
+    </property>
+    <property name="maximum">
+     <number>100</number>
+    </property>
+    <property name="singleStep">
+     <number>5</number>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_18">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>440</y>
+      <width>651</width>
+      <height>531</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#A48374;
+border:4px solid #130f0e;
+border-radius:20px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="ComboBox_FTComp_1">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>20</y>
+      <width>291</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+border:4px solid #2e394b;;
+border-radius:5px;</string>
+    </property>
+    <property name="currentText">
+     <string>FT Magnitude</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>FT Magnitude</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>FT Phase</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>FT Real</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>FT Imaginary</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QSlider" name="horizontalSlider_3">
+    <property name="geometry">
+     <rect>
+      <x>29</x>
+      <y>490</y>
+      <width>281</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:5px;
+border:4px solid black;
+color:#2e394b;
+background-color:#A48374;
+
+</string>
+    </property>
+    <property name="maximum">
+     <number>100</number>
+    </property>
+    <property name="singleStep">
+     <number>5</number>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="PushButton_Mix">
+    <property name="geometry">
+     <rect>
+      <x>830</x>
+      <y>460</y>
+      <width>191</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>inherit</family>
+      <pointsize>-1</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">  background: #2e394b;
+  font-family: inherit;
+  padding: 0.2em 0.3em;
+  font-weight: 600;
+  color:white;
+  font-size: 14px;
+  border: 3px solid #130f0e;
+  border-radius: 0.4em;
+
+</string>
+    </property>
+    <property name="text">
+     <string>Mix</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="RadioButton_Select_out1">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>20</y>
+      <width>211</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>99</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">Font-size:14px;
+font-weight:1000;
+color:black;
+background-color:#A48374;
+</string>
+    </property>
+    <property name="text">
+     <string>Output 1</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="RadioButton_Outside">
+    <property name="geometry">
+     <rect>
+      <x>1000</x>
+      <y>590</y>
+      <width>151</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>99</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">Font-size:14px;
+font-weight:1000;
+color:black;
+background-color:#A48374;
+</string>
+    </property>
+    <property name="text">
+     <string>Outside Region</string>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="RadioButton_Select_out2">
+    <property name="geometry">
+     <rect>
+      <x>960</x>
+      <y>20</y>
+      <width>211</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>99</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">Font-size:14px;
+font-weight:1000;
+color:black;
+background-color:#A48374;
+</string>
+    </property>
+    <property name="text">
+     <string>Output 2</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_19">
+    <property name="geometry">
+     <rect>
+      <x>810</x>
+      <y>660</y>
+      <width>241</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>99</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">Font-size:14px;
+font-weight:1000;
+border-bottom:3px solid black;
+color:black;
+background-color:#A48374;
+</string>
+    </property>
+    <property name="text">
+     <string>                    Select Mode</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="RadioButton_Inside">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>590</y>
+      <width>131</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>99</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">Font-size:14px;
+font-weight:1000;
+color:black;
+background-color:#A48374;
+</string>
+    </property>
+    <property name="text">
+     <string>Inside Region</string>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QWidget" name="Output_2" native="true">
+    <property name="geometry">
+     <rect>
+      <x>940</x>
+      <y>60</y>
+      <width>251</width>
+      <height>351</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+border-radius:20px;</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="RadioButton_RealandImg">
+    <property name="geometry">
+     <rect>
+      <x>1000</x>
+      <y>720</y>
+      <width>161</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>99</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">Font-size:14px;
+font-weight:1000;
+color:black;
+background-color:#A48374;
+</string>
+    </property>
+    <property name="text">
+     <string>Real and Imaginary</string>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="RadioButton_Magandphase">
+    <property name="geometry">
+     <rect>
+      <x>740</x>
+      <y>720</y>
+      <width>151</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>99</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">Font-size:14px;
+font-weight:1000;
+color:black;
+background-color:#A48374;
+</string>
+    </property>
+    <property name="text">
+     <string>Mag and Phase</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_21">
+    <property name="geometry">
+     <rect>
+      <x>810</x>
+      <y>530</y>
+      <width>241</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>-1</pointsize>
+      <weight>99</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">Font-size:14px;
+font-weight:1000;
+border-bottom:3px solid black;
+color:black;
+background-color:#A48374;
+</string>
+    </property>
+    <property name="text">
+     <string>                   Selected Area</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="Output_1" native="true">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>60</y>
+      <width>261</width>
+      <height>351</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+border-radius:20px;</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="Widget_Comp_2" native="true">
+    <property name="geometry">
+     <rect>
+      <x>1550</x>
+      <y>60</y>
+      <width>311</width>
+      <height>351</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+border-radius:20px;</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="Widget_Img_4" native="true">
+    <property name="geometry">
+     <rect>
+      <x>1220</x>
+      <y>560</y>
+      <width>321</width>
+      <height>361</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+border-radius:20px;</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="Widget_Img_2" native="true">
+    <property name="geometry">
+     <rect>
+      <x>1220</x>
+      <y>60</y>
+      <width>321</width>
+      <height>351</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+border-radius:20px;</string>
+    </property>
+   </widget>
+   <widget class="QSlider" name="horizontalSlider_4">
+    <property name="geometry">
+     <rect>
+      <x>1240</x>
+      <y>480</y>
+      <width>291</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:5px;
+border:4px solid black;
+color:#2e394b;
+background-color:#A48374;
+
+</string>
+    </property>
+    <property name="maximum">
+     <number>100</number>
+    </property>
+    <property name="singleStep">
+     <number>5</number>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="ComboBox_FTComp_4">
+    <property name="geometry">
+     <rect>
+      <x>1560</x>
+      <y>480</y>
+      <width>291</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+border:4px solid #2e394b;;
+border-radius:5px;</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>FT Magnitude</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>FT Phase</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>FT Real</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>FT Imaginary</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QWidget" name="Widget_Comp_4" native="true">
+    <property name="geometry">
+     <rect>
+      <x>1550</x>
+      <y>560</y>
+      <width>311</width>
+      <height>361</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+border-radius:20px;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_22">
+    <property name="geometry">
+     <rect>
+      <x>1210</x>
+      <y>440</y>
+      <width>661</width>
+      <height>531</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#A48374;
+border:4px solid #130f0e;
+border-radius:20px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_23">
+    <property name="geometry">
+     <rect>
+      <x>1210</x>
+      <y>0</y>
+      <width>661</width>
+      <height>431</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#A48374;
+border:4px solid #130f0e;
+border-radius:20px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QSlider" name="horizontalSlider_2">
+    <property name="geometry">
+     <rect>
+      <x>1240</x>
+      <y>20</y>
+      <width>291</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius:5px;
+border:4px solid black;
+color:#2e394b;
+background-color:#A48374;
+
+</string>
+    </property>
+    <property name="maximum">
+     <number>100</number>
+    </property>
+    <property name="singleStep">
+     <number>5</number>
+    </property>
+    <property name="value">
+     <number>0</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="ComboBox_FTComp_2">
+    <property name="geometry">
+     <rect>
+      <x>1560</x>
+      <y>20</y>
+      <width>291</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+border:4px solid #2e394b;;
+border-radius:5px;</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>FT Magnitude</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>FT Phase</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>FT Real</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>FT Imaginary</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label_17">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>0</y>
+      <width>541</width>
+      <height>971</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#A48374;
+border:4px solid #130f0e;
+border-radius:20px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QWidget" name="Widget_Comp_3" native="true">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>570</y>
+      <width>311</width>
+      <height>351</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+border-radius:20px;</string>
+    </property>
+   </widget>
+   <zorder>label_17</zorder>
+   <zorder>label_22</zorder>
+   <zorder>label_23</zorder>
+   <zorder>label_18</zorder>
+   <zorder>label_12</zorder>
+   <zorder>Widget_Img_1</zorder>
+   <zorder>ComboBox_FTComp_3</zorder>
+   <zorder>Widget_Img_3</zorder>
+   <zorder>Widget_Comp_1</zorder>
+   <zorder>horizontalSlider_1</zorder>
+   <zorder>ComboBox_FTComp_1</zorder>
+   <zorder>horizontalSlider_3</zorder>
+   <zorder>PushButton_Mix</zorder>
+   <zorder>RadioButton_Select_out1</zorder>
+   <zorder>RadioButton_Outside</zorder>
+   <zorder>RadioButton_Select_out2</zorder>
+   <zorder>label_19</zorder>
+   <zorder>RadioButton_Inside</zorder>
+   <zorder>Output_2</zorder>
+   <zorder>RadioButton_RealandImg</zorder>
+   <zorder>RadioButton_Magandphase</zorder>
+   <zorder>label_21</zorder>
+   <zorder>Output_1</zorder>
+   <zorder>Widget_Comp_2</zorder>
+   <zorder>Widget_Img_4</zorder>
+   <zorder>Widget_Img_2</zorder>
+   <zorder>horizontalSlider_4</zorder>
+   <zorder>ComboBox_FTComp_4</zorder>
+   <zorder>Widget_Comp_4</zorder>
+   <zorder>horizontalSlider_2</zorder>
+   <zorder>ComboBox_FTComp_2</zorder>
+   <zorder>Widget_Comp_3</zorder>
+  </widget>
+  <widget class="QWidget" name="tab_2">
+   <attribute name="title">
+    <string>Page</string>
+   </attribute>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>931</width>
+      <height>521</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#A48374;
+border:4px solid #130f0e;
+border-radius:20px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_10">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>760</y>
+      <width>181</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">Font-size:14px;
+font-weight:1000;
+color:black;
+background-color:#A48374;
+</string>
+    </property>
+    <property name="text">
+     <string>Phase Shift/Delay</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_Geometry">
+    <property name="geometry">
+     <rect>
+      <x>900</x>
+      <y>550</y>
+      <width>251</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+border:4px solid #130f0e;
+border-radius:5px;</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>Linear</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Curved</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>650</y>
+      <width>55</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">Font-size:14px;
+font-weight:1000;
+color:white;
+background-color:#A48374;
+
+
+
+</string>
+    </property>
+    <property name="text">
+     <string>Y:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>600</y>
+      <width>161</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">Font-size:14px;
+font-weight:1000;
+color:black;
+background-color:#A48374;
+</string>
+    </property>
+    <property name="text">
+     <string>Frequency  (GHz)</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_yPosition">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>650</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+border:4px solid #130f0e;
+border-radius:5px;</string>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBox_Radius">
+    <property name="geometry">
+     <rect>
+      <x>900</x>
+      <y>610</y>
+      <width>251</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+border:4px solid #130f0e;
+border-radius:5px;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>550</y>
+      <width>231</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">Font-size:14px;
+font-weight:1000;
+color:black;
+background-color:#A48374;
+</string>
+    </property>
+    <property name="text">
+     <string>Number of Transmiter/Recivers </string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>650</y>
+      <width>55</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">Font-size:14px;
+font-weight:1000;
+color:white;
+background-color:#A48374;
+
+
+
+</string>
+    </property>
+    <property name="text">
+     <string>X:</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox_Distance">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>710</y>
+      <width>241</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+border:4px solid #130f0e;
+border-radius:5px;
+</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>λ</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>λ/5</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>5λ/8</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>λ/2</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>3λ/8</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>λ/4</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>λ/8</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_xPosition">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>650</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+border:4px solid #130f0e;
+border-radius:5px;</string>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>660</y>
+      <width>141</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">Font-size:14px;
+font-weight:1000;
+color:black;
+background-color:#A48374;
+</string>
+    </property>
+    <property name="text">
+     <string>Location</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="widget_map" native="true">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>891</width>
+      <height>481</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+border-radius:20px;</string>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="spinBox_Frequency">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>600</y>
+      <width>241</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+border:4px solid #130f0e;
+border-radius:5px;</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBox_nTransmiter">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>550</y>
+      <width>241</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+border:4px solid #130f0e;
+border-radius:5px;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_16">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>710</y>
+      <width>211</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">Font-size:14px;
+font-weight:1000;
+color:black;
+background-color:#A48374;
+</string>
+    </property>
+    <property name="text">
+     <string>Distance between Transmiters</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_15">
+    <property name="geometry">
+     <rect>
+      <x>730</x>
+      <y>620</y>
+      <width>171</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">Font-size:14px;
+font-weight:1000;
+color:black;
+background-color:#A48374;
+</string>
+    </property>
+    <property name="text">
+     <string>Radius of Curvature</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_11">
+    <property name="geometry">
+     <rect>
+      <x>730</x>
+      <y>560</y>
+      <width>91</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">Font-size:14px;
+font-weight:1000;
+color:black;
+background-color:#A48374;
+</string>
+    </property>
+    <property name="text">
+     <string>Geometry</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>940</x>
+      <y>0</y>
+      <width>961</width>
+      <height>521</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#A48374;
+border:4px solid #130f0e;
+border-radius:20px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QWidget" name="widget_2" native="true">
+    <property name="geometry">
+     <rect>
+      <x>960</x>
+      <y>20</y>
+      <width>921</width>
+      <height>481</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+border-radius:20px;</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="comboBox">
+    <property name="geometry">
+     <rect>
+      <x>900</x>
+      <y>680</y>
+      <width>251</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+border:4px solid #130f0e;
+border-radius:5px;</string>
+    </property>
+    <item>
+     <property name="text">
+      <string>Scenarios</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>5G</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Tumer Albation</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Ultrasound</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label_14">
+    <property name="geometry">
+     <rect>
+      <x>730</x>
+      <y>680</y>
+      <width>111</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">Font-size:14px;
+font-weight:1000;
+color:black;
+background-color:#A48374;
+</string>
+    </property>
+    <property name="text">
+     <string>Scenarios</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>530</y>
+      <width>1901</width>
+      <height>431</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:#A48374;
+border:4px solid #130f0e;
+border-radius:20px;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_Reset">
+    <property name="geometry">
+     <rect>
+      <x>950</x>
+      <y>750</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">  background: #2e394b;
+  font-family: inherit;
+  padding: 0.2em 0.3em;
+  font-weight: 600;
+  color:white;
+  font-size: 14px;
+  border: 3px solid #130f0e;
+  border-radius: 0.4em;
+
+</string>
+    </property>
+    <property name="text">
+     <string>Reset</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>810</y>
+      <width>131</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">Font-size:14px;
+font-weight:1000;
+color:black;
+background-color:#A48374;</string>
+    </property>
+    <property name="text">
+     <string>Speed of medium</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_Speed">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>810</y>
+      <width>241</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:white;
+border:4px solid #130f0e;
+border-radius:5px;</string>
+    </property>
+    <property name="text">
+     <string>3e8</string>
+    </property>
+   </widget>
+   <widget class="QSlider" name="slider_Phase">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>760</y>
+      <width>221</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_13">
+    <property name="geometry">
+     <rect>
+      <x>272</x>
+      <y>780</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_20">
+    <property name="geometry">
+     <rect>
+      <x>475</x>
+      <y>780</y>
+      <width>21</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>360</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_24">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>780</y>
+      <width>16</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>90</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_25">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>780</y>
+      <width>31</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>180</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_26">
+    <property name="geometry">
+     <rect>
+      <x>422</x>
+      <y>780</y>
+      <width>21</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>270</string>
+    </property>
+   </widget>
+   <zorder>label_3</zorder>
+   <zorder>label</zorder>
+   <zorder>label_10</zorder>
+   <zorder>comboBox_Geometry</zorder>
+   <zorder>label_5</zorder>
+   <zorder>spinBox_Radius</zorder>
+   <zorder>label_4</zorder>
+   <zorder>label_8</zorder>
+   <zorder>comboBox_Distance</zorder>
+   <zorder>lineEdit_xPosition</zorder>
+   <zorder>label_6</zorder>
+   <zorder>widget_map</zorder>
+   <zorder>spinBox_Frequency</zorder>
+   <zorder>spinBox_nTransmiter</zorder>
+   <zorder>label_16</zorder>
+   <zorder>label_15</zorder>
+   <zorder>label_11</zorder>
+   <zorder>label_2</zorder>
+   <zorder>widget_2</zorder>
+   <zorder>label_9</zorder>
+   <zorder>lineEdit_yPosition</zorder>
+   <zorder>comboBox</zorder>
+   <zorder>label_14</zorder>
+   <zorder>pushButton_Reset</zorder>
+   <zorder>label_7</zorder>
+   <zorder>lineEdit_Speed</zorder>
+   <zorder>slider_Phase</zorder>
+   <zorder>label_13</zorder>
+   <zorder>label_20</zorder>
+   <zorder>label_24</zorder>
+   <zorder>label_25</zorder>
+   <zorder>label_26</zorder>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
