@@ -53,7 +53,7 @@ This Beamforming Simulator is a 2D visualization tool designed to help users und
    ```
 4. Run the simulator:
    ```bash
-   python BeamFormingSimulator.py
+   python program.py
    ```
 
 ## Usage
