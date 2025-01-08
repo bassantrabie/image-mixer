@@ -67,13 +67,6 @@ https://github.com/user-attachments/assets/bdf0630b-65b9-4e2e-9aee-8075b2a723db
 - Fine-tune settings for personalized experimentation.
 
 ## File Structure
-- `BeamFormingSimulator.py`: Main simulator logic.
-- `program.py`: Manages program flow.
-- `visulizer.py`: Handles data visualization.
-- `beamPlot.py`: Plots beamforming results.
-- `scenarios.py`: Contains predefined parameter settings files.
-- `task4.ui`: UI definition file.
-- `logs/`: Contains log files for debugging purposes.
 
 
 ## Contributors        
