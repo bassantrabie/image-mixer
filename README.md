@@ -77,12 +77,12 @@ https://github.com/user-attachments/assets/bdf0630b-65b9-4e2e-9aee-8075b2a723db
 
 
 ## Contributors        
-|---------------------|
-| [Mohamed Abdelhamid](https://github.com/mohamed5841) |
-| [Mohamed Salah](https://github.com/MuhamedSalah10) |
-| [Shaimaa Kamel](https://github.com/Shaimaakamel474) |
-| [Bassant Rabie](https://github.com/bassantrabie) |
-| [Malak Emad](https://github.com/malak-emad) |
+
+ [Mohamed Abdelhamid](https://github.com/mohamed5841), 
+ [Mohamed Salah](https://github.com/MuhamedSalah10),
+ [Shaimaa Kamel](https://github.com/Shaimaakamel474),
+ [Bassant Rabie](https://github.com/bassantrabie),
+ [Malak Emad](https://github.com/malak-emad) 
 
 
 ## Acknowledgments
