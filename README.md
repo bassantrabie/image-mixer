@@ -76,7 +76,7 @@ https://github.com/user-attachments/assets/bdf0630b-65b9-4e2e-9aee-8075b2a723db
 - `logs/`: Contains log files for debugging purposes.
 
 
-| Contributors        | 
+## Contributors        
 |---------------------|
 | [Mohamed Abdelhamid](https://github.com/mohamed5841) |
 | [Mohamed Salah](https://github.com/MuhamedSalah10) |
