@@ -3,6 +3,11 @@
 ## Overview
 This Beamforming Simulator is a 2D visualization tool designed to help users understand and experiment with beamforming concepts, widely used in modern technologies such as wireless communications, 5G, radar, sonar, and biomedical applications (e.g., ultrasound and tumor ablations). The core concepts implemented in this simulator are delays/phase shifts and constructive/destructive interference.
 
+
+
+https://github.com/user-attachments/assets/bdf0630b-65b9-4e2e-9aee-8075b2a723db
+
+
 ## Features
 - **Real-Time Beam Steering Customization:**
   - Adjust the number of transmitters/receivers.
