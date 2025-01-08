@@ -75,15 +75,15 @@ https://github.com/user-attachments/assets/bdf0630b-65b9-4e2e-9aee-8075b2a723db
 - `task4.ui`: UI definition file.
 - `logs/`: Contains log files for debugging purposes.
 
-## Contributing
-Contributions are welcome! Please follow the standard GitHub workflow:
-1. Fork the repository.
-2. Create a feature branch.
-3. Commit your changes.
-4. Create a pull request.
 
-## License
-This project is licensed under the MIT License.
+| Contributors        | 
+|---------------------|
+| [Mohamed Abdelhamid](https://github.com/mohamed5841) |
+| [Mohamed Salah](https://github.com/MuhamedSalah10) |
+| [Shaimaa Kamel](https://github.com/Shaimaakamel474) |
+| [Bassant Rabie](https://github.com/bassantrabie) |
+| [Malak Emad](https://github.com/malak-emad) |
+
 
 ## Acknowledgments
 Inspired by Matlab's beamforming toolboxes and modern beamforming applications in communications and biomedical technologies.
